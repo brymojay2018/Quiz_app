@@ -7,6 +7,7 @@ document.addEventListener(`DOMContentLoaded`, () => {
   const previousBtn = document.getElementById(`backbutton`)
   const restartBtn = document.getElementById(`restartquiz`)
   const viewquestionBtn = document.getElementById(`viewqustion`)
+  const backbtn = document.querySelector(`.backbtn`)
 
   // DOM content updated
   const questionheader = document.getElementById(`questionheader`)
@@ -193,34 +194,8 @@ document.addEventListener(`DOMContentLoaded`, () => {
                           </li>
                     </ul>`
       
-      console.log(questiondivelement)
       questionlisteddiv.appendChild(elementdiv)
 
-
-      // Creating the li and assigning the li to their parent element
-      //  <h1 class="text-3xl md:text-4xl" >Lorem ipsum dolor sit.</h1>
-      // const questiontitle = document.createElement(`h1`)
-      // questiontitle.textContent = decodeHTML(questionTitle)
-      // questiontitle.classList.add(`questiontitle`)
-
-      // const quizcorrect_answer = document.createElement("li")
-      // quizcorrect_answer.textContent = decodeHTML(correctAswer)
-
-      // const useranswer = document.createElement("li")
-      // useranswer.textContent = decodeHTML(userAnswer)
-
-      // quizcorrect_answer.classList.add(`labelTag`)
-      // useranswer.classList.add(`labelTag`)
-      
-      
-
-      // Checking if and else statement for the correct and user answer
-      // if (useranswer === quizcorrect_answer) {
-      //   useranswer.style.borderColor = `1.5px solid green`
-      // } else if (useranswer !== quizcorrect_answer) {
-      //   useranswer.style.border = `1.5px solid red`
-      //   quizcorrect_answer.style.border = `1.5px solid green`
-      // }
       
       showResult.classList.add("hidden")
       showquizarray.classList.remove("hidden")
@@ -265,6 +240,11 @@ document.addEventListener(`DOMContentLoaded`, () => {
     questiondiv.classList.remove("hidden")
     currentquestionIndex = 0
     score = 0
+  })
+
+  backbtn.addEventListener(`click`, () => {
+    showquizarray.classList.add("hidden")
+    showResult.classList.remove("hidden")
   })
 
 
