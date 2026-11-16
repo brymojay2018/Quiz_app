@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+
+    <link href="./output.css" rel="stylesheet">
+
+    <!-- CDN links -->
+     <!-- Google Icons -->
+     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+    <!-- Google font CDN link -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Instrument+Serif:ital@0;1&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sniglet:wght@400;800&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="quizcontainer flex flex-col h-screen">
+
+        <!-- introductory class -->
+        <div class="introduct_ory w-full p-5 md:p-16 h-full flex flex-col items-center justify-center">
+            <div class="subjectselection">
+                <div class="text-4xl">Hi, Welcome to Quiz Tacks</div>
+                <p class="mt-2 text-gray-700">Choose your preferred category and the number of questions you'd like to practise. Test your knowledge at your own pace!</p>
+
+                <div class="selectinput mt-8">
+
+                    <div class="inputselect flex flex-col gap-2">
+                        <label for="selectquestion">Select Category</label>
+                        <select name="questions" id="selectquestion" class="w-full p-4 border border-gray-500 text-[16px] ">
+                        <option value="Physics">Physics</option>
+                        <option value="Science">Science</option>
+                        <option value="General knowledge">General Knowledge</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Sports">Sports</option>
+                        <option value="Geography">Geography</option>
+                        <option value="History">History</option>
+                       </select>
+                    </div>
+
+                    <div class="questionNumber w-fit flex flex-col gap-4 mt-4">
+                        <p>How many questions?</p>
+                        <div class="typediv flex flex-row gap-2">
+                            <p class=" bg-gray-200 rounded-full w-fit">3</p>
+                            <p class=" bg-gray-200 rounded-full w-fit">10</p>
+                            <p class=" bg-gray-200 rounded-full w-fit">15</p>
+                            <p class=" bg-gray-200 rounded-full w-fit">25</p>
+                            <p class=" bg-gray-200 rounded-full w-fit">35</p>
+                            <p class=" bg-gray-200 rounded-full w-fit">50</p>
+                        </div>
+                    </div>
+                </div>
+
+               <!-- <ul class="subjectlist mt-8 w-full">
+                <li>Chemistry</li>
+                <li>Physics</li>
+                <li>Biology</li>
+                <li>Government</li>
+              </ul> -->
+
+              <p class="text-sm bg-red-500 italic" id="alert"></p>
+              <button id="startquizbtn">Start Quiz</button>
+            </div>
+        </div>
+
+        <!-- Questions and Options container -->
+        <div class="option_question_div hidden flex flex-col md:flex-row items-start justify-start md:items-start md:justify-center w-full h-full">
+            <!-- Question header_content -->
+            <div class="queestionSelection w-full md:h-full flex flex-col items-start justify-center p-5 md:p-12 bg-gray-100">
+                <p id="questionlenght" class="mb-3"></p>
+                <div class="text-3xl md:text-4xl max-w-full" id="questionheader"></div>
+            </div>
+
+            <!-- Options_content -->
+            <div class="questionselect  w-full h-fit p-5 md:p-12 md:h-full flex flex-col items-start justify-center">
+              <h3 class="text-2xl">Choose Options</h3>
+
+                <ul class="questionlist mt-4">
+                    <!-- <li class="labelTag">
+                          <p>Number</p>
+                          <p>Options</p>
+                    </li> -->
+                </ul>
+                <h4 id="optionalert" class="italic text-red-500"></h4>
+                <div class="button w-full">
+                    <button id="backbutton">Previous</button>
+                    <button id="nextbutton">Next</button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Showresult container -->
+        <div class="showresult hidden w-full h-full flex flex-col justify-center items-center p-12 gap-8">
+            <div class="resultheader flex items-center flex-col gap-2">
+                <span class="material-symbols-outlined">
+                     check_circle
+                    </span>
+                 <h2 class="text-4xl text-center">Quiz Completed</h2>
+                <p class="text-sm text-center">You score higher than 65% of the people who have taken this course</p>
+            </div>
+
+            <div class="resultdetails">
+                <div class="total_question">
+                <h2>Total Question</h2>
+                <p class="rounded"></p>
+               </div>
+              <div class="correct_answer bg-green-800">
+                <h2 class="text-white">Correct answer</h2>
+                <p class="rounded"></p>
+              </div>
+              <div class="in_correctanswer">
+                <h2>Incorrect answer</h2>
+                <p class="rounded"></p>
+              </div>
+            </div>
+
+           <div class="buttondiv flex flex-row gap-5">
+             <button id="restartquiz">Start Again</button>
+              <button class="viewqustion" id="viewqustion">View Question</button>
+           </div>
+        </div>
+
+        <!-- Show Quiz result -->
+        <div class="showquizarray hidden flex flex-col md:p-12 p-8 gap-12 ">
+
+            <div class="resultheader flex items-center flex-col gap-2">
+                
+                 <h2 class="md:text-4xl text-3xl text-center">Selected Questions and Answer</h2>
+                <p class="text-sm text-center">Take a look at your result</p>
+            </div>
+
+            <div class="question-contentlist flex flex-col gap-8 mt-6">
+
+                <!-- <div class="questionslisted flex flex-col pb-4">
+                    <p id="questionlenght" class="mb-3 text-sm">Question 1/20</p>
+                    <h1 class="questiontitle text-3xl md:text-4xl" >Lorem ipsum dolor sit.</h1>
+                   <ul class="questionlist mt-4">
+                        <li class="labelTag">
+                            question answer
+                        </li>
+                        <li class="labelTag">
+                            question answer
+                        </li>
+                   </ul>
+                </div> -->
+            </div>
+
+        </div>
+
+
+        
+    </div>
+
+    <script type="module" src="quiz.js"></script>
+</body>
+</html>

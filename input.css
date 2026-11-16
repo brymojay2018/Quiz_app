@@ -1,0 +1,107 @@
+
+@import "tailwindcss";
+
+*{
+    /* padding: 0; */
+    /* margin: 0; */
+    box-sizing: border-box;
+    font-family: "Urbanist", sans-serif;;
+}
+
+ul{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+ul li{
+    padding: 0.4rem 1rem; color: black; cursor: pointer; border-radius: 4px;
+}
+/* ul li:hover{
+    background-color: white;
+} */
+button{
+    width: fit-content;
+    padding: 0.7rem 1rem; background-color: black; color: white; border-radius: 100px; border: none; cursor: pointer;
+}
+
+
+/* Submit Details */
+.submit{
+position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6); 
+  z-index: 999;
+  display: none; justify-content: center; align-items: center; 
+}
+input,select,textarea{
+    padding: 0.5rem; border: 1px solid gray; font-size: 14px;
+}
+
+
+
+/* Quiz App CSS */
+
+/* .subjectselection{
+    
+} */
+
+.subjectlist .active{
+    background-color: black; color: white;
+}
+
+.subjectselection button{
+    margin-top: 3rem;
+    width: fit-content;
+}
+.questionlist{
+    width: 100%; display: flex; gap: 1rem;
+}
+
+.labelTag{
+    background-color: #f8f8f8;
+    display: flex; flex-direction: row; gap: 1rem; align-items: center; width: 100%; padding: 0.6rem 1rem; align-self: center; font-size: 1.1rem; border-radius: 12px;
+}
+.showactive{
+    border: 1.5px solid black;
+}
+
+input{
+    width: 24px;
+}
+.button{
+    display: flex; justify-content: end;align-items: end; gap: 1rem;
+    margin-top: 2rem; width: 100%;
+}
+
+.hidden{
+    display: none;
+}
+
+.resultdetails{
+    display: flex; flex-direction: column; align-items: center; width: 100%; row-gap: 8px;
+}
+
+.resultdetails div{
+    width: 250px; display: flex; flex-direction: row; align-items: center; justify-content: space-between; padding: 0.5rem 1rem; border-radius: 8px;
+}
+
+.resultdetails p{
+    font-size: 1.4rem; font-weight: 500; padding: 0.3rem 1rem; background-color: white;
+}
+.typediv p{
+    padding: 0.5rem 1rem; cursor: pointer;
+}
+.active{
+    background-color: black; color: white;
+}
+.viewqustion{
+    background-color: transparent; border: 1px solid black; color: black;
+}
+
+.questionslisted{
+    border-bottom: 1px solid rgba(128, 128, 128, 0.073);
+}
+
