@@ -185,7 +185,7 @@ document.addEventListener(`DOMContentLoaded`, () => {
       const elementdiv = document.createElement(`div`)
       elementdiv.classList.add(`questionslisted`)
   
-      elementdiv.innerHTML += `<p id="questionlenght" class="mb-3 text-sm">Question ${index + 1} of ${quizData.results.length}</p>
+      elementdiv.innerHTML += `<p id="questionlenght" class="mb-3 text-sm text-gray-600"">Question ${index + 1} of ${quizData.results.length}</p>
             <h1 class="questiontitle text-2xl md:text-2xl" >${questionTitle}</h1>
             <ul class="questionlist mt-4">
                   <li class="labelTag">
