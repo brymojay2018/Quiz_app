@@ -176,6 +176,7 @@ document.addEventListener(`DOMContentLoaded`, () => {
   }
 
   function showresultfun() {
+    resultdiv.innerHTML = ""
     quizData.results.forEach((questions, index) => {
       const correctAswer = questions.correct_answer
       const questionTitle = questions.question
@@ -252,7 +253,6 @@ document.addEventListener(`DOMContentLoaded`, () => {
   }
 
   restartBtn.addEventListener(`click`, () => {
-    resultdiv.innerHTML = ""
     showResult.classList.add("hidden")
     questiondiv.classList.remove("hidden")
     currentquestionIndex = 0
