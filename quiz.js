@@ -23,6 +23,7 @@ document.addEventListener(`DOMContentLoaded`, () => {
   const questiondiv = document.querySelector(`.introduct_ory`)
   const optiondiv = document.querySelector(`.option_question_div`)
    const questionlisteddiv = document.querySelector(`.question-contentlist`)
+   const resultdiv = document.querySelector(`.resultdiv`)
   
 
   
@@ -251,17 +252,12 @@ document.addEventListener(`DOMContentLoaded`, () => {
   }
 
   restartBtn.addEventListener(`click`, () => {
-    
+    resultdiv.innerHTML = ""
     showResult.classList.add("hidden")
     questiondiv.classList.remove("hidden")
     currentquestionIndex = 0
     score = 0
   })
-
-  // backbtn.addEventListener(`click`, () => {
-  //   showquizarray.classList.add("hidden")
-  //   showResult.classList.remove("hidden")
-  // })
 
 
 })
