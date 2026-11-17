@@ -22,7 +22,6 @@ document.addEventListener(`DOMContentLoaded`, () => {
   const showResult = document.querySelector(`.showresult`)
   const questiondiv = document.querySelector(`.introduct_ory`)
   const optiondiv = document.querySelector(`.option_question_div`)
-  const showquizarray = document.querySelector(`.showquizarray`)
    const questionlisteddiv = document.querySelector(`.question-contentlist`)
   
 
@@ -149,6 +148,7 @@ document.addEventListener(`DOMContentLoaded`, () => {
       showQuestion(quizData)
     } else {
       showresultcontent()
+      showresultfun()
     } 
     
   })
@@ -174,8 +174,7 @@ document.addEventListener(`DOMContentLoaded`, () => {
     userAnswers[currentquestionIndex] = event.currentTarget.textContent
   }
 
-  const questiondivelement = document.querySelector(`.questionslisted`)
-  viewquestionBtn.addEventListener(`click`, () => {
+  function showresultfun() {
     quizData.results.forEach((questions, index) => {
       const correctAswer = questions.correct_answer
       const questionTitle = questions.question
@@ -183,31 +182,48 @@ document.addEventListener(`DOMContentLoaded`, () => {
 
       const elementdiv = document.createElement(`div`)
       elementdiv.classList.add(`questionslisted`)
+  
       elementdiv.innerHTML += `<p id="questionlenght" class="mb-3 text-sm">Question ${index + 1} of ${quizData.results.length}</p>
-                      <h1 class="questiontitle text-3xl md:text-4xl" >${questionTitle}</h1>
-                    <ul class="questionlist mt-4">
-                          <li class="labelTag">
-                              ${userAnswer}
-                          </li>
-                          <li class="labelTag">
-                              ${correctAswer}
-                          </li>
-                    </ul>`
+            <h1 class="questiontitle text-2xl md:text-2xl" >${questionTitle}</h1>
+            <ul class="questionlist mt-4">
+                  <li class="labelTag">
+                      ${userAnswer}
+                  </li>
+                  <li class="labelTag ">
+                      ${correctAswer}
+                  </li>
+        </ul> `
+      checkanswer(correctAswer, userAnswer, elementdiv)
+      
       
       questionlisteddiv.appendChild(elementdiv)
-
-      
-      showResult.classList.add("hidden")
-      showquizarray.classList.remove("hidden")
       
     })
-  })
+  }
 
-  function checkanswer(questions) {
-    if (questions.correct_answer === questions[index]) {
-          document.querySelector(`.labelTag`).style.borderColor = `1.5px solid green`
+
+  function checkanswer(correctanswer, useranswer, elementdiv) {
+    const answerelement = elementdiv.querySelectorAll(`li`)
+
+    let useranswerelement = answerelement[0]
+    let correctelement = answerelement[1]
+    console.log(useranswerelement, correctelement)
+
+    if (useranswer === correctanswer) {
+      useranswerelement.classList.add("correct")
+      useranswerelement.insertAdjacentHTML('afterbegin', `<span class="material-symbols-outlined">
+        check_small
+        </span>`)
+      correctelement.style.display = "none"
         } else {
-          document.querySelector(`.labelTag`).style.borderColor = `1.5px solid red`
+      useranswerelement.classList.add("wrong")
+      useranswerelement.insertAdjacentHTML('afterbegin', `<span class="material-symbols-outlined">
+        close
+        </span>`)
+      correctelement.classList.add("correct")
+      correctelement.insertAdjacentHTML('afterbegin', `<span class="material-symbols-outlined">
+        check_small
+        </span>`)
         }
   }
 
@@ -242,10 +258,10 @@ document.addEventListener(`DOMContentLoaded`, () => {
     score = 0
   })
 
-  backbtn.addEventListener(`click`, () => {
-    showquizarray.classList.add("hidden")
-    showResult.classList.remove("hidden")
-  })
+  // backbtn.addEventListener(`click`, () => {
+  //   showquizarray.classList.add("hidden")
+  //   showResult.classList.remove("hidden")
+  // })
 
 
 })

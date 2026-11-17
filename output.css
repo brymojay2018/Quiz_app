@@ -24,6 +24,7 @@
     --text-3xl--line-height: calc(2.25 / 1.875);
     --text-4xl: 2.25rem;
     --text-4xl--line-height: calc(2.5 / 2.25);
+    --radius-3xl: 1.5rem;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
   }
@@ -258,17 +259,17 @@
   .gap-4 {
     gap: calc(var(--spacing) * 4);
   }
-  .gap-5 {
-    gap: calc(var(--spacing) * 5);
+  .gap-6 {
+    gap: calc(var(--spacing) * 6);
   }
   .gap-8 {
     gap: calc(var(--spacing) * 8);
   }
-  .gap-12 {
-    gap: calc(var(--spacing) * 12);
-  }
   .rounded {
     border-radius: 0.25rem;
+  }
+  .rounded-3xl {
+    border-radius: var(--radius-3xl);
   }
   .rounded-full {
     border-radius: calc(infinity * 1px);
@@ -292,26 +293,14 @@
   .bg-red-500 {
     background-color: var(--color-red-500);
   }
-  .p-2 {
-    padding: calc(var(--spacing) * 2);
-  }
   .p-4 {
     padding: calc(var(--spacing) * 4);
   }
   .p-5 {
     padding: calc(var(--spacing) * 5);
   }
-  .p-8 {
-    padding: calc(var(--spacing) * 8);
-  }
-  .p-12 {
-    padding: calc(var(--spacing) * 12);
-  }
-  .pb-4 {
-    padding-bottom: calc(var(--spacing) * 4);
-  }
-  .text-center {
-    text-align: center;
+  .text-start {
+    text-align: start;
   }
   .text-2xl {
     font-size: var(--text-2xl);
@@ -348,6 +337,9 @@
     .md\:h-full {
       height: 100%;
     }
+    .md\:w-full {
+      width: 100%;
+    }
     .md\:flex-row {
       flex-direction: row;
     }
@@ -357,11 +349,21 @@
     .md\:justify-center {
       justify-content: center;
     }
+    .md\:overflow-scroll {
+      overflow: scroll;
+    }
+    .md\:p-8 {
+      padding: calc(var(--spacing) * 8);
+    }
     .md\:p-12 {
       padding: calc(var(--spacing) * 12);
     }
     .md\:p-16 {
       padding: calc(var(--spacing) * 16);
+    }
+    .md\:text-2xl {
+      font-size: var(--text-2xl);
+      line-height: var(--tw-leading, var(--text-2xl--line-height));
     }
     .md\:text-4xl {
       font-size: var(--text-4xl);
@@ -371,7 +373,7 @@
 }
 * {
   box-sizing: border-box;
-  font-family: "Urbanist", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 ul {
   display: flex;
@@ -427,7 +429,7 @@ input,select,textarea {
   background-color: #f8f8f8;
   display: flex;
   flex-direction: row;
-  gap: 1rem;
+  gap: 0.4rem;
   align-items: center;
   width: 100%;
   padding: 0.6rem 1rem;
@@ -460,7 +462,7 @@ input {
   row-gap: 8px;
 }
 .resultdetails div {
-  width: 250px;
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -488,7 +490,20 @@ input {
   color: black;
 }
 .questionslisted {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 12px;
+  border-radius: 16px;
   border-bottom: 1px solid rgba(128, 128, 128, 0.073);
+}
+.correct {
+  background-color: green;
+  color: white;
+}
+.wrong {
+  background-color: rgba(255, 0, 0, 0.079);
+  color: red;
 }
 @property --tw-border-style {
   syntax: "*";
