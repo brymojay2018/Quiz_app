@@ -7,7 +7,7 @@ document.addEventListener(`DOMContentLoaded`, () => {
   const previousBtn = document.getElementById(`backbutton`)
   const restartBtn = document.getElementById(`restartquiz`)
   const viewquestionBtn = document.getElementById(`viewqustion`)
-  const backbtn = document.querySelector(`.backbtn`)
+  const backbtn = document.querySelector(`.restartbtn`)
 
   // DOM content updated
   const questionheader = document.getElementById(`questionheader`)
@@ -257,6 +257,11 @@ document.addEventListener(`DOMContentLoaded`, () => {
     questiondiv.classList.remove("hidden")
     currentquestionIndex = 0
     score = 0
+  })
+
+  backbtn.addEventListener(`click`, () => {
+    showResult.classList.add("hidden")
+    questiondiv.classList.remove("hidden")
   })
 
 
