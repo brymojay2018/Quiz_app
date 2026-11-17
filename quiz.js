@@ -23,7 +23,7 @@ document.addEventListener(`DOMContentLoaded`, () => {
   const questiondiv = document.querySelector(`.introduct_ory`)
   const optiondiv = document.querySelector(`.option_question_div`)
    const questionlisteddiv = document.querySelector(`.question-contentlist`)
-   const resultdiv = document.querySelector(`.resultdiv`)
+   const resultdiv = document.querySelector(`.question-contentlist`)
   
 
   
